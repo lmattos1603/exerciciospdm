@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Cálculo de Salário
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Cálculo de Salário</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="ion-padding">
+    <form (ngSubmit)="onCalcularClick()">
+      <ion-list>
+        <ion-item>
+          <ion-label position="stacked">Horas Trabalhadas</ion-label>
+          <ion-input required type="text" [(ngModel)]="edtHoras" name="horas"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label position="stacked">Valor da Hora</ion-label>
+          <ion-input required type="text" [(ngModel)]="edtValor" name="valor"></ion-input>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label>Porcentagem de Desconto</ion-label>
+          <ion-select name="desconto" multiple="false" [(ngModel)]="cbDesconto">
+            <ion-select-option value="0.1">10%</ion-select-option>
+            <ion-select-option value="0.2">20%</ion-select-option>
+            <ion-select-option value="0.3">30%</ion-select-option>
+          </ion-select>
+        </ion-item>
+  
+        <center>
+          <ion-button color="success" type="submit">Calcular</ion-button>
+        </center>
+  
+        <ion-item>
+          <ion-label>Salário bruto:</ion-label>
+          <ion-label>{{ salarioB }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Desconto:</ion-label>
+          <ion-label>{{ desconto }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Salário líquido:</ion-label>
+          <ion-label>{{ salarioL }}</ion-label>
+        </ion-item>
+      </ion-list>    
+    </form>
+  </div>
+  
+</ion-content>
